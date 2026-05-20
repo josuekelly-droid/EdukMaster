@@ -14,7 +14,11 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.edukmaster.app"
+      "bundleIdentifier": "com.edukmaster.app",
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "Allow $(PRODUCT_NAME) to use speech recognition.",
+        "NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to use the microphone."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -22,11 +26,13 @@
         "backgroundColor": "#1E40AF"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.edukmaster.app"
+      "package": "com.edukmaster.app",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
+    
     "extra": {
       "eas": {
         "projectId": "2eca949a-d964-438b-bbd9-ff8c72f39ea6"
@@ -34,6 +40,12 @@
     },
     "plugins": [
       "expo-speech-recognition"
-    ]
+    ],
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2eca949a-d964-438b-bbd9-ff8c72f39ea6"
+    }
   }
 }
