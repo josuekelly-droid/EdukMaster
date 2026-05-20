@@ -91,7 +91,7 @@ EdukMaster est une application mobile complète qui permet aux élèves de :
 
 ```bash
 # Cloner le projet
-git clone https://github.com/kellywebnux/EdukMaster.git
+git clone https://github.com/josuekelly-droid/EdukMaster.git
 cd EdukMaster
 
 # Installer les dépendances
