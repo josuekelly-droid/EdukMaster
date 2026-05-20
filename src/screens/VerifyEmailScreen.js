@@ -25,9 +25,9 @@ export default function VerifyEmailScreen({ route, navigation }) {
     if (error) {
       Alert.alert('Erreur', 'Code invalide ou expiré. Vérifiez votre email et réessayez.');
     } else {
-      // Connexion automatique après vérification
+      
       Alert.alert('✅ Succès', 'Votre compte est vérifié !', [
-        // { text: 'OK', onPress: () => navigation.reset({ index: 0, routes: [{ name: 'Auth' }] }) }
+        
         { text: 'OK', onPress: () => navigation.navigate('Auth') }
       ]);
     }

@@ -1,11 +1,11 @@
 import { supabase } from './supabase';
 
-// Vérifier et attribuer les badges
+
 export async function checkAndAwardBadges() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
-  // Récupérer les stats de l'utilisateur
+  
   const { data: resultats } = await supabase.from('resultats').select('*').eq('user_id', user.id);
   const { data: examens } = await supabase.from('examens_blancs').select('*').eq('user_id', user.id);
   const { data: badgesGagnes } = await supabase.from('user_badges').select('badge_id').eq('user_id', user.id);
@@ -22,7 +22,7 @@ export async function checkAndAwardBadges() {
   const joursStreak = streak?.jours_consecutifs || 0;
   const questionsIA = iaMessages?.length || 0;
 
-  // Calculer le nombre de matières avec au moins un exercice réussi
+  
   let matieresActives = 0;
   if (matieres) {
     for (const mat of matieres) {
@@ -47,7 +47,7 @@ export async function checkAndAwardBadges() {
     toutes_matieres: matieresActives,
   };
 
-  // Calculer les pourcentages par matière
+  
   if (matieres) {
     for (const mat of matieres) {
       const { data: exosMatiere } = await supabase
@@ -63,7 +63,7 @@ export async function checkAndAwardBadges() {
     }
   }
 
-  // Vérifier chaque badge
+  
   const nouveauxBadges = [];
   for (const badge of tousBadges || []) {
     if (badgesDejaGagnes.includes(badge.id)) continue;
@@ -81,7 +81,7 @@ export async function checkAndAwardBadges() {
   return nouveauxBadges;
 }
 
-// Mettre à jour le streak
+
 export async function updateStreak() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;

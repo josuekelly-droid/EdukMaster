@@ -49,7 +49,7 @@ export default function BadgesScreen() {
           </View>
         </View>
 
-        {/* Grille */}
+        
         <View style={styles.grid}>
           {badges.map((badge) => {
             const unlocked = userBadges.includes(badge.id);
@@ -68,7 +68,7 @@ export default function BadgesScreen() {
           })}
         </View>
 
-        {/* Espace en bas pour éviter le masquage */}
+        
         <View style={styles.bottomSpace} />
       </ScrollView>
     </SafeAreaView>
